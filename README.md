@@ -1,5 +1,10 @@
 # Renamecrop
+
+## Description
 Resize and name images in bulk through a GUI
+
+## Usage
+TBD
 
 ## Goal
 - Create a working and simple to use GUI image resizer + renamer
