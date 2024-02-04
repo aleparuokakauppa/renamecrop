@@ -21,6 +21,7 @@ Run the script:
 ### Executable
 The binary was built on Windows 11 amd64 with Pyinstaller.
 Sha256: `68c7090076dcb29d2b5023971942c184a3aee9662f43696da463e802432ec98e  main.exe`
+
 Manual installation is preferred, since the binary is mainly for my own convenience.
 
 - Download and run the .exe file on a amd64-system
