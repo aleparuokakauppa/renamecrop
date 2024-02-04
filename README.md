@@ -35,12 +35,12 @@ Manual installation is preferred, since the binary is mainly for my own convenie
 If this doesn't work -> Manual installation
 
 ## Goal
-- Fix the ugly UI
 - Create a working and simple to use GUI image resizer + renamer
 - Application is reasonably performant
 - A Windows installation for use by non-developers
 
 ## Roadmap
+- Fix the ugly UI
 - A preview for the RGB selector
 - Semantic corrections as they come up
 - A proper installer for multi-platform, not a single .exe
