@@ -98,7 +98,7 @@ window = sg.Window("Renamecrop", layout, size=(1000, 800))
 while True:
     event, values = window.read()
 
-    if event == 'Quit':
+    if event == 'Quit' or event == sg.WIN_CLOSED:
         break
 
     elif event == 'Run':
