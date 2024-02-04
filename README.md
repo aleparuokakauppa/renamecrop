@@ -7,6 +7,9 @@ Created with:
 - [Wand](https://github.com/emcconville/wand)
 - [Pil](https://github.com/python-pillow/Pillow)
 
+## Screenshot
+![Screenshot](https://github.com/aleparuokakauppa/renamecrop/blob/main/screenshots/Renamecrop.jpeg?raw=true)
+
 ## Usage
 Two ways:
 Manual or Windows executable
