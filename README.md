@@ -1,5 +1,5 @@
 # Renamecrop
-Resize and name images in bulk through a GUI! 
+Resize and name images in bulk through a GUI
 
 ## Goal
 - Create a working and simple to use GUI image resizer + renamer
