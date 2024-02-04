@@ -34,8 +34,9 @@ If this doesn't work -> Manual installation
 ## Goal
 - Create a working and simple to use GUI image resizer + renamer
 - Application is reasonably performant
-- A Windows installer for use by non-developers
+- A Windows installation for use by non-developers
 
 ## Roadmap
 - A preview for the RGB selector
 - Semantic corrections as they come up
+- A proper installer for multi-platform, not a single .exe
