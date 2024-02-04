@@ -35,6 +35,7 @@ Manual installation is preferred, since the binary is mainly for my own convenie
 If this doesn't work -> Manual installation
 
 ## Goal
+- Fix the ugly UI
 - Create a working and simple to use GUI image resizer + renamer
 - Application is reasonably performant
 - A Windows installation for use by non-developers
