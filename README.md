@@ -38,3 +38,4 @@ If this doesn't work -> Manual installation
 
 ## Roadmap
 - A preview for the RGB selector
+- Semantic corrections as they come up
