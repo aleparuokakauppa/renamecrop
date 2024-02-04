@@ -7,6 +7,11 @@ Created with:
 - [Wand](https://github.com/emcconville/wand)
 - [Pil](https://github.com/python-pillow/Pillow)
 
+## Goal
+- Create a working and simple to use GUI image resizer + renamer
+- Application is reasonably performant
+- A Windows installation for use by non-developers
+
 ## Usage
 Two ways:
 Manual or Windows executable
@@ -30,11 +35,6 @@ Manual installation is preferred, since the binary is mainly for my own convenie
 - Download and run the .exe file on a amd64-system
 
 If this doesn't work -> Manual installation
-
-## Goal
-- Create a working and simple to use GUI image resizer + renamer
-- Application is reasonably performant
-- A Windows installation for use by non-developers
 
 ## Roadmap
 - A preview for the RGB selector
