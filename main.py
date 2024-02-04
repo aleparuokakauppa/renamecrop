@@ -10,7 +10,7 @@ class InternalError(Exception):
 # Define the window's contents
 layout = [ 
     [sg.Text("Select the images to resize and crop", font=('', 30)),
-    sg.FilesBrowse(file_types=(("Image Files", "*.png", "*.jpeg", "*.jpg", "*.webp")), key="-INPUTFILES-", target="-COUNT-", font=('', 20))],
+    sg.FilesBrowse(file_types=(("Image Files", "*.png;*.jpeg;*.jpg;*.webp"),), key="-INPUTFILES-", font=('', 20))],
     [sg.Text("None selected", font=('', 25), text_color="grey", key="-COUNT-")],
 
     # Image basenamess
