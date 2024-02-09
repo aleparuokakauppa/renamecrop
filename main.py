@@ -42,6 +42,9 @@ layout = [
     [sg.Button("Run", font=('', 20)), sg.Button("Quit", font=('', 20))],
 ]
 
+# Create the window
+window = sg.Window("Renamecrop", layout, size=(1000, 800), resizable=True)
+
 def resizeImagesCentered(input_files, basename, output_path, target_width, target_height, target_format, background_color):
     counter = 1
     # Iterate over a list of files
@@ -99,9 +102,6 @@ def resizeImagesStretched(input_files, basename, output_path, target_width, targ
             new_filename = f"{basename}_{counter}.{img_format}"
             resized_image.save(os.path.join(output_path, new_filename))
         counter += 1
-
-# Create the window
-window = sg.Window("Renamecrop", layout, size=(1000, 800))
 
 while True:
 
