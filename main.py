@@ -17,8 +17,9 @@ layout = [
     [sg.Text("Give basename for files:", font=('', 30)), sg.InputText(font=('', 30), key="-BASENAME-")],
 
     # Checkboxes
-    [sg.Checkbox("Stretch images? (default: centered)", font=('', 25), key="-IS_STRETCHED-"),
-    sg.Checkbox("Use 1:1 aspect ratio?", font=('', 25), enable_events=True, key="-ONEBYONE-")],
+    [sg.Checkbox("Stretch images? (default: centered)", font=('', 22), key="-IS_STRETCHED-"),
+    sg.Checkbox("Use 1:1 aspect ratio?", font=('', 22), enable_events=True, key="-ONEBYONE-")],
+    [sg.Checkbox("Use original image format? (default: jpeg)", font=('', 22), key="-USEINPUTFORMAT-")],
 
     # New resolutions for the images
     [sg.Text("New width:", font=('', 25)), sg.Spin(values=[i for i in range(1, 10000)], initial_value=500, key="-WIDTH-", font=('', 24))],
@@ -27,9 +28,9 @@ layout = [
     # Color picker for the background
     [sg.Text("Background color in RGB. Applicable only in centered-mode.", font=('', 28))],
     [sg.Text("RGB = 255, 255, 255 means white and 0, 0, 0 black.", font=('', 18), text_color="grey")],
-    [sg.Text("Red", font=('', 25), text_color="red"), sg.Slider(range=(0, 255), orientation="h", size=(20, 20), pad=((200, 5)), key="-RED-")],
-    [sg.Text("Green", font=('', 25), text_color="green"), sg.Slider(range=(0, 255), orientation="h", size=(20, 20), pad=((180, 5)), key="-GREEN-")],
-    [sg.Text("Blue", font=('', 25), text_color="blue"), sg.Slider(range=(0, 255), orientation="h", size=(20, 20), pad=((200, 5)), key="-BLUE-")],
+    [sg.Text("Red", font=('', 25), text_color="red"), sg.Slider(range=(0, 255), default_value=255, orientation="h", size=(20, 20), pad=((200, 5)), key="-RED-")],
+    [sg.Text("Green", font=('', 25), text_color="green"), sg.Slider(range=(0, 255), default_value=255, orientation="h", size=(20, 20), pad=((180, 5)), key="-GREEN-")],
+    [sg.Text("Blue", font=('', 25), text_color="blue"), sg.Slider(range=(0, 255), default_value=255, orientation="h", size=(20, 20), pad=((200, 5)), key="-BLUE-")],
 
     # Destination folder
     [sg.Text("Select the destination folder:", font=('', 25)), sg.FolderBrowse(key="-OUTPUTFOLDER-", font=('', 20), target="-DESTINATION_PATH-")],
@@ -39,7 +40,7 @@ layout = [
     [sg.Button("Run", font=('', 20)), sg.Button("Quit", font=('', 20))],
 ]
 
-def resizeImagesCentered(input_files, basename, output_path, target_width, target_height, background_color):
+def resizeImagesCentered(input_files, basename, output_path, target_width, target_height, target_format, background_color):
     counter = 1
     # Iterate over a list of files
     for file in input_files:
@@ -66,16 +67,19 @@ def resizeImagesCentered(input_files, basename, output_path, target_width, targe
             paste_y = (target_height - new_height) // 2
             resized_image.paste(img.resize((new_width, new_height)), (paste_x, paste_y))
 
+            # Check the target format
+            if target_format == False:
+                img_format = "jpeg"
+            else:
+                img_format = img.format.lower()
+                
             # Save the image with the counter as a suffix
-            img_format = img.format
-            if img_format is not None:
-                img_format = img_format.lower()
             new_filename = f"{basename}_{counter}.{img_format}"
             resized_image.save(os.path.join(output_path, new_filename))
         counter += 1
     return counter
 
-def resizeImagesStretched(input_files, basename, output_path, target_width, target_height):
+def resizeImagesStretched(input_files, basename, output_path, target_width, target_height, target_format):
     counter = 1
     # Iterate over a list of files
     for file in input_files:
@@ -83,10 +87,13 @@ def resizeImagesStretched(input_files, basename, output_path, target_width, targ
         with Image.open(file) as img:
             # Resize the image
             resized_image = img.resize((target_width, target_height))
-            # Get the image format
-            img_format = img.format
-            if img_format is not None:
-                img_format = img_format.lower()
+
+            # Check the target format
+            if target_format == False:
+                img_format = "jpeg"
+            else:
+                img_format = img.format.lower()
+
             # Save the image with the counter as a suffix
             new_filename = f"{basename}_{counter}.{img_format}"
             resized_image.save(os.path.join(output_path, new_filename))
@@ -116,6 +123,10 @@ while True:
 
             background_color = (int(values["-RED-"]), int(values["-GREEN-"]), int(values["-BLUE-"]))
             is_stretched = values["-IS_STRETCHED-"]
+            
+            # Get the target image format
+            target_format = values["-USEINPUTFORMAT-"]
+
             # Get the new size
             new_width = int(values["-WIDTH-"])
             if values["-ONEBYONE-"]:
@@ -137,9 +148,9 @@ while True:
 
             # Execute the resizeImages on all of the images
             if is_stretched == True:
-                resizeImagesStretched(selected_files, base_name, output_folder, new_width, new_height)
+                resizeImagesStretched(selected_files, base_name, output_folder, new_width, new_height, target_format)
             else:
-                resizeImagesCentered(selected_files, base_name, output_folder, new_width, new_height, background_color)
+                resizeImagesCentered(selected_files, base_name, output_folder, new_width, new_height, target_format, background_color)
             
             # Success
             sg.popup("Files were resized and renamed")
