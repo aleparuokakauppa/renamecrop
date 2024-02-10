@@ -25,7 +25,7 @@ Run the script:
 
 ### Executable
 - as of 09.02.24 the exe is currently behind the current source code!
-- 
+
 The binary was built on Windows 11 amd64 with Pyinstaller.
 
 Sha256: `68c7090076dcb29d2b5023971942c184a3aee9662f43696da463e802432ec98e  main.exe`
