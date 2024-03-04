@@ -24,11 +24,9 @@ Run the script:
 `python main.py`
 
 ### Executable
-- as of 09.02.24 the exe is currently behind the current source code!
-
 The binary was built on Windows 11 amd64 with Pyinstaller.
 
-Sha256: `68c7090076dcb29d2b5023971942c184a3aee9662f43696da463e802432ec98e  main.exe`
+Sha256: `669e16c6ea9787cdd6dba89fe0c7b84b8e993d1d256089d9d95ec673881e2ec6  main.exe`
 
 Manual installation is preferred, since the binary is mainly for my own convenience.
 
