@@ -23,7 +23,6 @@ Run the script:
 ## Goal
 - Create a working and simple to use GUI image resizer + renamer
 - Application is reasonably performant
-- A Windows installation for use by non-developers
 
 ## Roadmap
 - Migrate from pysimple gui, since they went closed source.
