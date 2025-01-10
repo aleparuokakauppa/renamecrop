@@ -1,8 +1,5 @@
 # Renamecrop
 
-## Note
-Since PySimpleGUI has switched to a paid model, this project will no longer be maintained.
-
 ## Description
 Resize and name images in bulk through a GUI
 Created with:
